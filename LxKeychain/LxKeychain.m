@@ -99,8 +99,10 @@ static NSString * const LX_PASSWORD_KEY = @"LX_PASSWORD_KEY";
             nil];
 }
 
-+ (OSStatus)saveData:(id)data forService:(NSString *)service
-{
++ (OSStatus)saveData:(id<NSCoding>)data forService:(NSString *)service
+{    
+    NSAssert([(NSObject *)data conformsToProtocol:@protocol(NSCoding)] || data == nil, @"data must conforms protocol NSCoding or NSSecureCoding!");    //
+    
     NSMutableDictionary * keychainQuery = [self generateQueryMutableDictionaryOfService:service];
     OSStatus status = noErr;
     status = SecItemDelete((__bridge CFDictionaryRef)keychainQuery);
@@ -112,7 +114,7 @@ static NSString * const LX_PASSWORD_KEY = @"LX_PASSWORD_KEY";
     return status;
 }
 
-+ (id)fetchDataOfService:(NSString *)service
++ (id<NSCoding>)fetchDataOfService:(NSString *)service
 {
     NSMutableDictionary * keychainQuery = [self generateQueryMutableDictionaryOfService:service];
     [keychainQuery setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];

@@ -31,8 +31,8 @@ static NSString * (^const LxKeychainEncryptionBlock)(NSString *) = ^(NSString * 
 + (NSArray *)savedUsernameArray;
 + (NSString *)lastestUpdatedUsername;
 
-+ (OSStatus)saveData:(id)data forService:(NSString *)service;
-+ (id)fetchDataOfService:(NSString *)service;
++ (OSStatus)saveData:(id<NSCoding>)data forService:(NSString *)service;
++ (id<NSCoding>)fetchDataOfService:(NSString *)service;
 + (OSStatus)deleteService:(NSString *)service;
 
 #pragma mark - Unavailable
