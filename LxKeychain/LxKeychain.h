@@ -26,10 +26,11 @@
 
 #define LX_UNAVAILABLE(msg) __attribute__((unavailable(msg)))
 
+typedef NSString * (^ EncrytionBlock)(NSString *);
 /*
  *  Can be customed by yourself. Default use md5.
  */
-static NSString * (^const LxKeychainEncryptionBlock)(NSString *) = ^(NSString * string) {
+static EncrytionBlock LxKeychainEncryptionBlock = ^(NSString * string) {
     const char * cPlaintext = string.UTF8String;
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cPlaintext, (CC_LONG)strlen(cPlaintext), result);

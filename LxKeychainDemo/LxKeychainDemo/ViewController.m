@@ -15,6 +15,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"SandBox = %@", NSHomeDirectory());  //
+    
+    NSLog(@"savedUsernameArray = %@", [LxKeychain savedUsernameArray]); //
+    
     [LxKeychain insertOrUpdatePairsOfUsername:@"username1" password:@"password1"];
     [LxKeychain insertOrUpdatePairsOfUsername:@"username2" password:@"password2"];
     [LxKeychain insertOrUpdatePairsOfUsername:@"username3" password:@"password3"];
