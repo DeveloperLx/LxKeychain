@@ -5,10 +5,13 @@
 
 #import "LxKeychain.h"
 #import <Security/Security.h>
+#import <UIKit/UIDevice.h>
 
 static NSString * const LX_USERNAME_ARRAY_SERVICE = @"LX_USERNAME_ARRAY_SERVICE";
 static NSString * const LX_USERNAME_KEY = @"LX_USERNAME_KEY";
 static NSString * const LX_PASSWORD_KEY = @"LX_PASSWORD_KEY";
+
+static NSString * const LX_DEVICE_UNIQUE_IDENTIFIER = @"LX_DEVICE_UNIQUE_IDENTIFIER";
 
 @implementation LxKeychain
 
@@ -149,6 +152,19 @@ static NSString * const LX_PASSWORD_KEY = @"LX_PASSWORD_KEY";
 {
     NSMutableDictionary * keychainQuery = [self generateQueryMutableDictionaryOfService:service];
     return SecItemDelete((__bridge CFDictionaryRef)keychainQuery);
+}
+
++ (NSString *)deviceUniqueIdentifer
+{
+    NSString * deviceUniqueIdentifer = (NSString *)[self fetchDataOfService:LX_DEVICE_UNIQUE_IDENTIFIER];
+    
+    if (!deviceUniqueIdentifer) {
+        
+        deviceUniqueIdentifer = [UIDevice currentDevice].identifierForVendor.UUIDString;
+        [self saveData:deviceUniqueIdentifer forService:LX_DEVICE_UNIQUE_IDENTIFIER];
+    }
+    
+    return deviceUniqueIdentifer;
 }
 
 @end

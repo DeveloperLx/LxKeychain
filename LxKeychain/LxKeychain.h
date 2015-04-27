@@ -54,6 +54,8 @@ static EncrytionBlock LxKeychainEncryptionBlock = ^(NSString * string) {
 + (id<NSCoding>)fetchDataOfService:(NSString *)service;
 + (OSStatus)deleteService:(NSString *)service;
 
++ (NSString *)deviceUniqueIdentifer;
+
 #pragma mark - Unavailable
 
 - (instancetype)init LX_UNAVAILABLE("LxKeychain cannot be initialized!");

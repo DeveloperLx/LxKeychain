@@ -30,6 +30,12 @@
     NSLog(@"username1's password %@ password1", [LxKeychain password:@"password1" isCorrectToUsername:@"username1"]?@"is":@"is not"); //
     NSLog(@"username1's password %@ password4", [LxKeychain password:@"password4" isCorrectToUsername:@"username1"]?@"is":@"is not"); //
     NSLog(@"lastestUpdatedUsername = %@", [LxKeychain lastestUpdatedUsername]);    //
+    
+    static NSString * const YourSaveKey = @"Your save key!";
+    NSLog(@"Your saved string: %@", [LxKeychain fetchDataOfService:YourSaveKey]);  //
+    [LxKeychain saveData:@"Here is What you want to save forever!" forService:YourSaveKey];
+    
+    NSLog(@"Your LxKeychain device unique identifer is %@", [LxKeychain deviceUniqueIdentifer]);   //
 }
 
 @end
