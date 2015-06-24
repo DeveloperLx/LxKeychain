@@ -32,4 +32,4 @@ Usage
     // You can try to run once, then uninstall your app, then build and run it again. You will see shocking phenomena！
 License
 -----------
-LxLabel is available under the Apache License 2.0. See the LICENSE file for more info.
+LxKeychain is available under the Apache License 2.0. See the LICENSE file for more info.
