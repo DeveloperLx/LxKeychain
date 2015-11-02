@@ -3,6 +3,9 @@ Manage your username and password for iOS and OS X platform. Highly encryption a
 Installation
 ------------
   You only need drag LxKeychain.h and LxKeychain.m to your project.
+Podfile
+------------
+    pod 'LxKeychain', '~> 1.0.0'
 Support
 ------------
   Minimum support iOS version: iOS 6.0
