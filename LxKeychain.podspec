@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/DeveloperLx/LxKeychain.git", :tag => s.version}
   s.source_files = 'LxKeychain/LxKeychain.*'
   s.requires_arc = true
-  s.frameworks   = 'Foundation', 'CoreGraphics', 'CommonCrypto', 'Security', 'UIKit'
+  s.frameworks   = 'Foundation', 'CoreGraphics', 'Security', 'UIKit'
 end
