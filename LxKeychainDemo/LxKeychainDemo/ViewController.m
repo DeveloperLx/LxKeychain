@@ -34,6 +34,7 @@
     [LxKeychain saveData:@"Here is What you want to save forever!" forService:YourSaveKey];
     
     NSLog(@"Your LxKeychain device unique identifer is %@", [LxKeychain deviceUniqueIdentifer]);   //
+//    NSLog(@"Your keychain access group is %@", [LxKeychain accessGroupName]);   //
 }
 
 @end

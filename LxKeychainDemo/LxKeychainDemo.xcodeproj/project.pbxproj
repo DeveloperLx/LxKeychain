@@ -13,21 +13,11 @@
 		BF592A6F1AC8E45C000B50B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF592A6D1AC8E45C000B50B4 /* Main.storyboard */; };
 		BF592A711AC8E45C000B50B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF592A701AC8E45C000B50B4 /* Images.xcassets */; };
 		BF592A741AC8E45C000B50B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF592A721AC8E45C000B50B4 /* LaunchScreen.xib */; };
-		BF592A801AC8E45C000B50B4 /* LxKeychainDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF592A7F1AC8E45C000B50B4 /* LxKeychainDemoTests.m */; };
 		BF592A8C1AC8E4D3000B50B4 /* LxKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = BF592A8B1AC8E4D3000B50B4 /* LxKeychain.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BF592A7A1AC8E45C000B50B4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF592A581AC8E45C000B50B4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF592A5F1AC8E45C000B50B4;
-			remoteInfo = LxKeychainDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		B67F44DE1CF968EB00EC3E14 /* LxKeychainDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LxKeychainDemo.entitlements; sourceTree = "<group>"; };
 		BF592A601AC8E45C000B50B4 /* LxKeychainDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LxKeychainDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF592A641AC8E45C000B50B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF592A651AC8E45C000B50B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,22 +28,12 @@
 		BF592A6E1AC8E45C000B50B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF592A701AC8E45C000B50B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BF592A731AC8E45C000B50B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BF592A791AC8E45C000B50B4 /* LxKeychainDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LxKeychainDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF592A7E1AC8E45C000B50B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF592A7F1AC8E45C000B50B4 /* LxKeychainDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxKeychainDemoTests.m; sourceTree = "<group>"; };
 		BF592A8A1AC8E4D3000B50B4 /* LxKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxKeychain.h; sourceTree = "<group>"; };
 		BF592A8B1AC8E4D3000B50B4 /* LxKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxKeychain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BF592A5D1AC8E45C000B50B4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF592A761AC8E45C000B50B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				BF592A621AC8E45C000B50B4 /* LxKeychainDemo */,
-				BF592A7C1AC8E45C000B50B4 /* LxKeychainDemoTests */,
 				BF592A611AC8E45C000B50B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				BF592A601AC8E45C000B50B4 /* LxKeychainDemo.app */,
-				BF592A791AC8E45C000B50B4 /* LxKeychainDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +62,7 @@
 		BF592A621AC8E45C000B50B4 /* LxKeychainDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B67F44DE1CF968EB00EC3E14 /* LxKeychainDemo.entitlements */,
 				BF592A891AC8E4D3000B50B4 /* LxKeychain */,
 				BF592A671AC8E45C000B50B4 /* AppDelegate.h */,
 				BF592A681AC8E45C000B50B4 /* AppDelegate.m */,
@@ -102,23 +81,6 @@
 			children = (
 				BF592A641AC8E45C000B50B4 /* Info.plist */,
 				BF592A651AC8E45C000B50B4 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BF592A7C1AC8E45C000B50B4 /* LxKeychainDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				BF592A7F1AC8E45C000B50B4 /* LxKeychainDemoTests.m */,
-				BF592A7D1AC8E45C000B50B4 /* Supporting Files */,
-			);
-			path = LxKeychainDemoTests;
-			sourceTree = "<group>";
-		};
-		BF592A7D1AC8E45C000B50B4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BF592A7E1AC8E45C000B50B4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,24 +115,6 @@
 			productReference = BF592A601AC8E45C000B50B4 /* LxKeychainDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF592A781AC8E45C000B50B4 /* LxKeychainDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF592A861AC8E45C000B50B4 /* Build configuration list for PBXNativeTarget "LxKeychainDemoTests" */;
-			buildPhases = (
-				BF592A751AC8E45C000B50B4 /* Sources */,
-				BF592A761AC8E45C000B50B4 /* Frameworks */,
-				BF592A771AC8E45C000B50B4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF592A7B1AC8E45C000B50B4 /* PBXTargetDependency */,
-			);
-			name = LxKeychainDemoTests;
-			productName = LxKeychainDemoTests;
-			productReference = BF592A791AC8E45C000B50B4 /* LxKeychainDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,10 +126,15 @@
 				TargetAttributes = {
 					BF592A5F1AC8E45C000B50B4 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					BF592A781AC8E45C000B50B4 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = BF592A5F1AC8E45C000B50B4;
+						DevelopmentTeam = 4394J75KCV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -203,7 +152,6 @@
 			projectRoot = "";
 			targets = (
 				BF592A5F1AC8E45C000B50B4 /* LxKeychainDemo */,
-				BF592A781AC8E45C000B50B4 /* LxKeychainDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +164,6 @@
 				BF592A6F1AC8E45C000B50B4 /* Main.storyboard in Resources */,
 				BF592A741AC8E45C000B50B4 /* LaunchScreen.xib in Resources */,
 				BF592A711AC8E45C000B50B4 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF592A771AC8E45C000B50B4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,23 +181,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF592A751AC8E45C000B50B4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF592A801AC8E45C000B50B4 /* LxKeychainDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BF592A7B1AC8E45C000B50B4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF592A5F1AC8E45C000B50B4 /* LxKeychainDemo */;
-			targetProxy = BF592A7A1AC8E45C000B50B4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BF592A6D1AC8E45C000B50B4 /* Main.storyboard */ = {
@@ -360,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LxKeychainDemo/LxKeychainDemo.entitlements;
 				INFOPLIST_FILE = LxKeychainDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -371,44 +297,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LxKeychainDemo/LxKeychainDemo.entitlements;
 				INFOPLIST_FILE = LxKeychainDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		BF592A871AC8E45C000B50B4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LxKeychainDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LxKeychainDemo.app/LxKeychainDemo";
-			};
-			name = Debug;
-		};
-		BF592A881AC8E45C000B50B4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LxKeychainDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LxKeychainDemo.app/LxKeychainDemo";
 			};
 			name = Release;
 		};
@@ -429,15 +322,6 @@
 			buildConfigurations = (
 				BF592A841AC8E45C000B50B4 /* Debug */,
 				BF592A851AC8E45C000B50B4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF592A861AC8E45C000B50B4 /* Build configuration list for PBXNativeTarget "LxKeychainDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF592A871AC8E45C000B50B4 /* Debug */,
-				BF592A881AC8E45C000B50B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

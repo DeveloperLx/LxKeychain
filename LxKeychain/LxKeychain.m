@@ -5,13 +5,15 @@
 
 #import "LxKeychain.h"
 #import <Security/Security.h>
+
+#if TARGET_OS_IOS
 #import <UIKit/UIDevice.h>
+static NSString * const LX_DEVICE_UNIQUE_IDENTIFIER = @"LX_DEVICE_UNIQUE_IDENTIFIER";
+#endif
 
 static NSString * const LX_USERNAME_ARRAY_SERVICE = @"LX_USERNAME_ARRAY_SERVICE";
 static NSString * const LX_USERNAME_KEY = @"LX_USERNAME_KEY";
 static NSString * const LX_PASSWORD_KEY = @"LX_PASSWORD_KEY";
-
-static NSString * const LX_DEVICE_UNIQUE_IDENTIFIER = @"LX_DEVICE_UNIQUE_IDENTIFIER";
 
 @implementation LxKeychain
 
@@ -99,6 +101,9 @@ static NSString * const LX_DEVICE_UNIQUE_IDENTIFIER = @"LX_DEVICE_UNIQUE_IDENTIF
             (__bridge id)kSecAttrAccessibleAfterFirstUnlock, (__bridge id)kSecAttrAccessible,
             service, (__bridge id)kSecAttrService,
             service, (__bridge id)kSecAttrAccount,
+#if !TARGET_IPHONE_SIMULATOR
+            [self accessGroupName], (__bridge id)kSecAttrAccessGroup,
+#endif
             nil];
 }
 
@@ -148,11 +153,68 @@ static NSString * const LX_DEVICE_UNIQUE_IDENTIFIER = @"LX_DEVICE_UNIQUE_IDENTIF
     }
 }
 
++ (OSStatus)saveString:(NSString *)string forService:(NSString *)service
+{
+    NSMutableDictionary * keychainQuery = [self generateQueryMutableDictionaryOfService:service];
+    OSStatus status = noErr;
+    status = SecItemDelete((__bridge CFDictionaryRef)keychainQuery);
+    
+    [keychainQuery setValue:string forKey:(__bridge id)kSecValueData];
+    CFTypeRef result = 0;
+    status = SecItemAdd((__bridge CFDictionaryRef)keychainQuery, &result);
+    
+    return status;
+}
+
++ (NSString *)fetchStringOfService:(NSString *)service
+{
+    NSMutableDictionary * keychainQuery = [self generateQueryMutableDictionaryOfService:service];
+    [keychainQuery setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
+    [keychainQuery setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
+    
+    OSStatus status = noErr;
+    
+    CFDataRef archivedData = NULL;
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)keychainQuery, (CFTypeRef *)&archivedData);
+    
+    if (status == noErr && archivedData) {
+        
+        NSString * string = [[NSString alloc]initWithData:(__bridge NSData *)archivedData encoding:NSUTF8StringEncoding];
+        CFRelease(archivedData);
+        return string;
+    }
+    else {
+        return nil;
+    }
+}
+
 + (OSStatus)deleteService:(NSString *)service
 {
     NSMutableDictionary * keychainQuery = [self generateQueryMutableDictionaryOfService:service];
     return SecItemDelete((__bridge CFDictionaryRef)keychainQuery);
 }
+
++ (NSString *)accessGroupName
+{
+    NSDictionary *keychainQuery = @{(__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
+                                    (__bridge id)kSecAttrAccount : @"bundleSeedID",
+                                    (__bridge id)kSecAttrService : @"",
+                                    (__bridge id)kSecReturnAttributes : (__bridge id)kCFBooleanTrue};
+
+    CFDictionaryRef result = NULL;
+    OSStatus status = SecItemCopyMatching((CFDictionaryRef)keychainQuery, (CFTypeRef *)&result);
+    if (status == errSecItemNotFound) {
+        status = SecItemAdd((CFDictionaryRef)keychainQuery, (CFTypeRef *)&result);
+    }
+    if (status != errSecSuccess) {
+        return nil;
+    }
+    NSString * accessGroup = [(__bridge NSDictionary *)result objectForKey:(__bridge id)kSecAttrAccessGroup];
+    CFRelease(result);
+    return accessGroup;
+}
+
+#if TARGET_OS_IOS
 
 + (NSString *)deviceUniqueIdentifer
 {
@@ -161,10 +223,12 @@ static NSString * const LX_DEVICE_UNIQUE_IDENTIFIER = @"LX_DEVICE_UNIQUE_IDENTIF
     if (!deviceUniqueIdentifer) {
         
         deviceUniqueIdentifer = [UIDevice currentDevice].identifierForVendor.UUIDString;
-        [self saveData:deviceUniqueIdentifer forService:LX_DEVICE_UNIQUE_IDENTIFIER];
+        [self saveString:deviceUniqueIdentifer forService:LX_DEVICE_UNIQUE_IDENTIFIER];
     }
     
     return deviceUniqueIdentifer;
 }
+
+#endif
 
 @end

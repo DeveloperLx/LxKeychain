@@ -54,7 +54,13 @@ static EncrytionBlock LxKeychainEncryptionBlock = ^(NSString * string) {
 + (id<NSCoding>)fetchDataOfService:(NSString *)service;
 + (OSStatus)deleteService:(NSString *)service;
 
++ (NSString *)accessGroupName;
+
+#if TARGET_OS_IOS
+
 + (NSString *)deviceUniqueIdentifer;
+
+#endif
 
 #pragma mark - Unavailable
 
