@@ -31,6 +31,7 @@ Usage
     [LxKeychain saveData:@"Here is What you want to save forever!" forService:YourSaveKey];
     
     NSLog(@"Your LxKeychain device unique identifer is %@", [LxKeychain deviceUniqueIdentifer]);   //
+    NSLog(@"Your keychain access group is %@", [LxKeychain accessGroupName]);   //
 
     // You can try to run once, then uninstall your app, then build and run it again. You will see shocking phenomena！
 License
